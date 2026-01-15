@@ -1,0 +1,8 @@
+
+{
+  "name": "Unick Auto Detailing - Premium Miami Mobile Detailing",
+  "description": "High-conversion marketing site and lead management platform for Miami's premier mobile auto detailing service featuring AI-powered quote assistance.",
+  "requestFramePermissions": [
+    "geolocation"
+  ]
+}
