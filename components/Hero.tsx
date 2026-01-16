@@ -2,8 +2,22 @@
 import React from 'react';
 import { ShieldCheck, Star, Phone, ChevronRight, Zap, PlayCircle } from 'lucide-react';
 import { BUSINESS_INFO } from '../constants';
+import { useNavigate } from 'react-router-dom';
 
 const Hero = () => {
+  const navigate = useNavigate();
+
+  const scrollToGallery = () => {
+    navigate('/gallery');
+  };
+
+  const scrollToQuote = () => {
+    const quoteElement = document.getElementById('quote');
+    if (quoteElement) {
+      quoteElement.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
+
   return (
     <section className="relative min-h-screen flex items-center pt-24 pb-20 overflow-hidden">
       <div className="gradient-mesh" />
@@ -22,6 +36,14 @@ const Hero = () => {
       <div className="container mx-auto px-4">
         <div className="grid lg:grid-cols-2 gap-20 items-center">
           <div className="text-center lg:text-left">
+            {/* Social Proof Line */}
+            <div className="inline-flex items-center gap-2 mb-8 kinetic-reveal" style={{ animationDelay: '0.05s' }}>
+              <div className="flex items-center gap-1">
+                {[1,2,3,4,5].map(i => <Star key={i} size={14} fill="currentColor" className="text-gold" />)}
+              </div>
+              <span className="text-sm font-black text-slate-300">Over 2,400+ vehicles detailed across Miami – 4.9 ★ rating</span>
+            </div>
+
             <div className="inline-flex items-center gap-3 px-5 py-2 rounded-full glass-card border-white/10 text-xs font-black uppercase tracking-[0.2em] text-gold mb-10 kinetic-reveal" style={{ animationDelay: '0.1s' }}>
               <span className="w-2 h-2 bg-gold rounded-full animate-ping" />
               Miami's #1 Elite Mobile Concierge
@@ -34,15 +56,15 @@ const Hero = () => {
             </h1>
             
             <p className="text-xl text-slate-400 max-w-xl mx-auto lg:mx-0 mb-12 leading-relaxed font-medium kinetic-reveal" style={{ animationDelay: '0.3s' }}>
-              We've detailed over 2,400 luxury vehicles in Miami. We don't just wash—we restore, protect, and perfect your investment at your driveway.
+              Premium mobile detailing at your home or office across Greater Miami in 24–48 hours.
             </p>
             
             <div className="flex flex-col sm:flex-row gap-5 mb-12 justify-center lg:justify-start kinetic-reveal" style={{ animationDelay: '0.4s' }}>
-              <a href="#quote" className="liquid-gold-btn px-12 py-6 rounded-full font-black text-xl flex items-center justify-center gap-2 group">
-                Reserve Your Transformation
+              <button onClick={scrollToQuote} className="liquid-gold-btn px-12 py-6 rounded-full font-black text-xl flex items-center justify-center gap-2 group">
+                Book Mobile Detail
                 <ChevronRight size={24} className="group-hover:translate-x-1 transition-transform" />
-              </a>
-              <button className="flex items-center justify-center gap-3 px-10 py-6 glass-card border-white/10 rounded-full font-black text-lg hover:bg-white/5 transition-all text-white">
+              </button>
+              <button onClick={scrollToGallery} className="flex items-center justify-center gap-3 px-10 py-6 glass-card border-white/10 rounded-full font-black text-lg hover:bg-white/5 transition-all text-white">
                 <PlayCircle size={24} className="text-gold" />
                 Watch Transformation
               </button>
@@ -107,9 +129,9 @@ const Hero = () => {
                    </div>
                 </div>
 
-                <a href="#quote" className="w-full py-6 bg-platinum text-slate-950 rounded-2xl font-black text-center block hover:bg-gold transition-all shadow-xl tracking-widest uppercase">
-                  Start Transformation
-                </a>
+                <button onClick={scrollToQuote} className="w-full py-6 bg-platinum text-slate-950 rounded-2xl font-black text-center block hover:bg-gold transition-all shadow-xl tracking-widest uppercase">
+                  Book Mobile Detail
+                </button>
               </div>
 
               <div className="mt-12 flex items-center justify-center gap-8 border-t border-white/5 pt-10">
