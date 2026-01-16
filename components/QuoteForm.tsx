@@ -9,6 +9,7 @@ const QuoteForm = () => {
   const [step, setStep] = useState(0); // 0 is Intent Selection
   const [isSubmitted, setIsSubmitted] = useState(false);
   const [intent, setIntent] = useState<string | null>(null);
+  const [errors, setErrors] = useState<Record<string, string>>({});
   const [formData, setFormData] = useState<Partial<QuoteRequest>>({
     services: [],
     vehicle: { year: 2024, make: '', model: '' },
@@ -76,7 +77,34 @@ const QuoteForm = () => {
   };
 
   // Fix: Added handleNext and handleBack functions for step navigation
-  const handleNext = () => setStep(prev => Math.min(prev + 1, 5));
+  const validateStep = (stepNum: number): boolean => {
+    const newErrors: Record<string, string> = {};
+
+    if (stepNum === 1) {
+      if (!formData.services || formData.services.length === 0) {
+        newErrors.services = 'Please select at least one service';
+      }
+    } else if (stepNum === 2) {
+      if (!formData.vehicle?.make) newErrors.make = 'Please enter vehicle make';
+      if (!formData.vehicle?.model) newErrors.model = 'Please enter vehicle model';
+    } else if (stepNum === 3) {
+      if (!formData.contact?.name) newErrors.name = 'Please enter your name';
+      if (!formData.contact?.phone) newErrors.phone = 'Please enter your phone';
+      if (!formData.contact?.email) newErrors.email = 'Please enter your email';
+      if (!formData.location) newErrors.location = 'Please select a service area';
+    } else if (stepNum === 4) {
+      if (!formData.preferredDate) newErrors.date = 'Please select a date';
+    }
+
+    setErrors(newErrors);
+    return Object.keys(newErrors).length === 0;
+  };
+
+  const handleNext = () => {
+    if (validateStep(step + 1)) {
+      setStep(prev => Math.min(prev + 1, 5));
+    }
+  };
   const handleBack = () => setStep(prev => Math.max(prev - 1, 0));
 
   const handleSubmit = (e: React.FormEvent) => {
@@ -152,6 +180,26 @@ const QuoteForm = () => {
                "All set! We'll dispatch within 24 hours."}
             </p>
           </div>
+
+          {/* Live Price Estimate - Sticky during flow */}
+          {step > 0 && step < 5 && (
+            <div className="mb-10 p-8 bg-gold/10 rounded-3xl border border-gold/30 animate-in fade-in duration-500">
+              <p className="text-[10px] font-black uppercase tracking-[0.3em] text-gold/70 mb-3">Current Estimate</p>
+              <div className="flex items-baseline gap-2 mb-2">
+                <p className="text-3xl font-black italic text-gold">${estimate.min}</p>
+                <p className="text-sm text-slate-400">—</p>
+                <p className="text-3xl font-black italic text-gold">${estimate.max}</p>
+              </div>
+              <p className="text-[10px] text-slate-400 font-bold uppercase tracking-widest">
+                {formData.services?.length === 0 ? '(Select services to see estimate)' : formData.services?.length === 1 ? `${formData.services.length} service selected` : `${formData.services?.length} services selected`}
+              </p>
+              {(formData.services?.length || 0) >= 2 && (
+                <p className="text-[10px] text-success font-bold uppercase tracking-widest mt-2 flex items-center gap-1">
+                  <Check size={12} /> 15% Bundle Savings Applied
+                </p>
+              )}
+            </div>
+          )}
 
           <div className="mt-auto space-y-8 hidden lg:block border-t border-white/5 pt-12">
              <div className="flex items-center gap-5 group">
@@ -270,6 +318,11 @@ const QuoteForm = () => {
                   </button>
                 ))}
               </div>
+              {errors.services && (
+                <div className="mt-6 p-4 bg-red-500/10 border border-red-500/30 rounded-2xl">
+                  <p className="text-xs font-bold text-red-400 uppercase tracking-widest">{errors.services}</p>
+                </div>
+              )}
               {formData.services?.length! >= 2 && (
                 <div className="mt-10 p-6 bg-gold/10 border border-gold/30 rounded-3xl flex items-center justify-between animate-pulse">
                    <div className="flex items-center gap-3">
@@ -333,39 +386,63 @@ const QuoteForm = () => {
                   <label className="text-[10px] font-black uppercase tracking-[0.3em] text-slate-600">Owner Name</label>
                   <input 
                     type="text" required placeholder="Full Name"
-                    className="w-full bg-slate-950 border border-white/10 rounded-[20px] px-8 py-6 text-sm font-bold outline-none focus:border-gold transition-all text-white"
+                    className={`w-full bg-slate-950 border rounded-[20px] px-8 py-6 text-sm font-bold outline-none focus:border-gold transition-all text-white ${
+                      errors.name ? 'border-red-500/50' : 'border-white/10'
+                    }`}
                     value={formData.contact?.name}
-                    onChange={e => setFormData(p => ({ ...p, contact: { ...p.contact!, name: e.target.value } }))}
+                    onChange={e => {
+                      setFormData(p => ({ ...p, contact: { ...p.contact!, name: e.target.value } }));
+                      if (errors.name) setErrors(p => ({ ...p, name: '' }));
+                    }}
                   />
+                  {errors.name && <p className="text-xs text-red-400 font-bold">{errors.name}</p>}
                 </div>
                 <div className="space-y-3">
                   <label className="text-[10px] font-black uppercase tracking-[0.3em] text-slate-600">Priority Phone</label>
                   <input 
                     type="tel" required placeholder="(786) 000-0000"
-                    className="w-full bg-slate-950 border border-white/10 rounded-[20px] px-8 py-6 text-sm font-bold outline-none focus:border-gold transition-all text-white"
+                    className={`w-full bg-slate-950 border rounded-[20px] px-8 py-6 text-sm font-bold outline-none focus:border-gold transition-all text-white ${
+                      errors.phone ? 'border-red-500/50' : 'border-white/10'
+                    }`}
                     value={formData.contact?.phone}
-                    onChange={e => setFormData(p => ({ ...p, contact: { ...p.contact!, phone: e.target.value } }))}
+                    onChange={e => {
+                      setFormData(p => ({ ...p, contact: { ...p.contact!, phone: e.target.value } }));
+                      if (errors.phone) setErrors(p => ({ ...p, phone: '' }));
+                    }}
                   />
+                  {errors.phone && <p className="text-xs text-red-400 font-bold">{errors.phone}</p>}
                 </div>
                 <div className="space-y-3">
                   <label className="text-[10px] font-black uppercase tracking-[0.3em] text-slate-600">Strategic Email</label>
                   <input 
                     type="email" required placeholder="name@domain.com"
-                    className="w-full bg-slate-950 border border-white/10 rounded-[20px] px-8 py-6 text-sm font-bold outline-none focus:border-gold transition-all text-white"
+                    className={`w-full bg-slate-950 border rounded-[20px] px-8 py-6 text-sm font-bold outline-none focus:border-gold transition-all text-white ${
+                      errors.email ? 'border-red-500/50' : 'border-white/10'
+                    }`}
                     value={formData.contact?.email}
-                    onChange={e => setFormData(p => ({ ...p, contact: { ...p.contact!, email: e.target.value } }))}
+                    onChange={e => {
+                      setFormData(p => ({ ...p, contact: { ...p.contact!, email: e.target.value } }));
+                      if (errors.email) setErrors(p => ({ ...p, email: '' }));
+                    }}
                   />
+                  {errors.email && <p className="text-xs text-red-400 font-bold">{errors.email}</p>}
                 </div>
                 <div className="md:col-span-2 space-y-3">
                   <label className="text-[10px] font-black uppercase tracking-[0.3em] text-slate-600">Deployment District</label>
                   <select 
-                    className="w-full bg-slate-950 border border-white/10 rounded-[20px] px-8 py-6 text-sm font-bold outline-none focus:border-gold transition-all text-white"
+                    className={`w-full bg-slate-950 border rounded-[20px] px-8 py-6 text-sm font-bold outline-none focus:border-gold transition-all text-white ${
+                      errors.location ? 'border-red-500/50' : 'border-white/10'
+                    }`}
                     value={formData.location}
-                    onChange={e => setFormData(p => ({ ...p, location: e.target.value }))}
+                    onChange={e => {
+                      setFormData(p => ({ ...p, location: e.target.value }));
+                      if (errors.location) setErrors(p => ({ ...p, location: '' }));
+                    }}
                   >
-                    <option value="">Select Miami Service Sector</option>
+                    <option value="">Select a Miami service area...</option>
                     {SERVICE_AREAS.map(area => <option key={area} value={area}>{area}</option>)}
                   </select>
+                  {errors.location && <p className="text-xs text-red-400 font-bold">{errors.location}</p>}
                 </div>
                 <div className="md:col-span-2 flex items-center gap-6 p-6 glass-card rounded-[28px] border-white/5">
                   <input 
@@ -386,11 +463,26 @@ const QuoteForm = () => {
                <div className="grid grid-cols-2 gap-8">
                   <div className="space-y-3">
                     <label className="text-[10px] font-black uppercase tracking-[0.3em] text-slate-600">Target Date</label>
-                    <input type="date" className="w-full bg-slate-950 border border-white/10 rounded-[20px] px-8 py-6 text-sm font-bold outline-none text-white" value={formData.preferredDate} onChange={e => setFormData(p => ({ ...p, preferredDate: e.target.value }))} />
+                    <input 
+                      type="date" 
+                      className={`w-full bg-slate-950 border rounded-[20px] px-8 py-6 text-sm font-bold outline-none focus:border-gold transition-all text-white ${
+                        errors.date ? 'border-red-500/50' : 'border-white/10'
+                      }`}
+                      value={formData.preferredDate} 
+                      onChange={e => {
+                        setFormData(p => ({ ...p, preferredDate: e.target.value }));
+                        if (errors.date) setErrors(p => ({ ...p, date: '' }));
+                      }} 
+                    />
+                    {errors.date && <p className="text-xs text-red-400 font-bold">{errors.date}</p>}
                   </div>
                   <div className="space-y-3">
                     <label className="text-[10px] font-black uppercase tracking-[0.3em] text-slate-600">Arrival Window</label>
-                    <select className="w-full bg-slate-950 border border-white/10 rounded-[20px] px-8 py-6 text-sm font-bold outline-none text-white" value={formData.preferredTime} onChange={e => setFormData(p => ({ ...p, preferredTime: e.target.value as any }))}>
+                    <select 
+                      className="w-full bg-slate-950 border border-white/10 rounded-[20px] px-8 py-6 text-sm font-bold outline-none focus:border-gold transition-all text-white" 
+                      value={formData.preferredTime} 
+                      onChange={e => setFormData(p => ({ ...p, preferredTime: e.target.value as any }))}
+                    >
                       <option value="morning">Morning (08:00 - 12:00)</option>
                       <option value="afternoon">Afternoon (12:00 - 16:00)</option>
                       <option value="evening">Evening (16:00 - 19:00)</option>
