@@ -2,12 +2,12 @@
 import React, { useState } from 'react';
 
 const cases = [
-  { id: 1, title: "Deep Coffee Stain Removal", car: "2023 BMW Interior", before: "https://picsum.photos/800/600?random=11", after: "https://picsum.photos/800/600?random=12" },
-  { id: 2, title: "Paint Correction + Coating", car: "Tesla Model S", before: "https://picsum.photos/800/600?random=21", after: "https://picsum.photos/800/600?random=22" },
-  { id: 3, title: "Headlight Restoration", car: "2015 Honda Accord", before: "https://picsum.photos/800/600?random=31", after: "https://picsum.photos/800/600?random=32" },
-  { id: 4, title: "Full Interior Steam Clean", car: "Family Minivan", before: "https://picsum.photos/800/600?random=41", after: "https://picsum.photos/800/600?random=42" },
-  { id: 5, title: "Engine Bay Detailing", car: "Luxury SUV", before: "https://picsum.photos/800/600?random=51", after: "https://picsum.photos/800/600?random=52" },
-  { id: 6, title: "Wash & Wax Transformation", car: "Matte Finish Lamborghini", before: "https://picsum.photos/800/600?random=61", after: "https://picsum.photos/800/600?random=62" },
+  { id: 1, title: "Deep Coffee Stain Removal", car: "2023 BMW Interior", service: "Premium Interior Detail", before: "https://picsum.photos/800/600?random=11", after: "https://picsum.photos/800/600?random=12" },
+  { id: 2, title: "Paint Correction + Ceramic Coating", car: "Tesla Model S", service: "Precision Paint Correction + Elite Ceramic Shield", before: "https://picsum.photos/800/600?random=21", after: "https://picsum.photos/800/600?random=22" },
+  { id: 3, title: "Headlight Restoration & Clarity", car: "2015 Honda Accord", service: "Signature Wash & Wax", before: "https://picsum.photos/800/600?random=31", after: "https://picsum.photos/800/600?random=32" },
+  { id: 4, title: "Full Interior Steam Sanitization", car: "Family Minivan", service: "Concierge Interior + Medical-Grade Sanitization", before: "https://picsum.photos/800/600?random=41", after: "https://picsum.photos/800/600?random=42" },
+  { id: 5, title: "Engine Bay Deep Clean & Polish", car: "Luxury SUV", service: "Total Transformation (Engine Bay Detail)", before: "https://picsum.photos/800/600?random=51", after: "https://picsum.photos/800/600?random=52" },
+  { id: 6, title: "Matte Finish Wash & Protection", car: "Matte Finish Lamborghini", service: "Signature Wash & Wax + UV Protection", before: "https://picsum.photos/800/600?random=61", after: "https://picsum.photos/800/600?random=62" },
 ];
 
 const ComparisonSlider = ({ before, after }: { before: string, after: string }) => {
@@ -54,13 +54,20 @@ const BeforeAfterWall = () => {
       <div className="container mx-auto px-4">
         <div className="text-center mb-16">
           <h2 className="text-4xl md:text-5xl font-bold mb-4">Results Speak Louder</h2>
-          <p className="text-slate-400 text-lg">Swipe to see the transformation of real Miami cars we've detailed.</p>
+          <p className="text-slate-400 text-lg">Drag to reveal the transformation of real Miami cars we've detailed.</p>
+          <p className="text-slate-500 text-sm mt-3">Each example showcases the specific service and results you can expect.</p>
         </div>
 
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
           {cases.map((item) => (
             <div key={item.id} className="group">
-              <ComparisonSlider before={item.before} after={item.after} />
+              <div className="relative">
+                <ComparisonSlider before={item.before} after={item.after} />
+                {/* Service label badge */}
+                <div className="absolute top-4 left-4 glass px-3 py-1.5 rounded-lg text-xs font-bold uppercase tracking-wide text-accent border border-accent/30 backdrop-blur-md">
+                  {item.service}
+                </div>
+              </div>
               <div className="mt-6">
                 <h4 className="text-lg font-bold group-hover:text-accent transition-colors">{item.title}</h4>
                 <p className="text-sm text-slate-500 font-medium tracking-tight uppercase">{item.car}</p>

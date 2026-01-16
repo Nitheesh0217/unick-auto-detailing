@@ -23,11 +23,16 @@ const ReviewsSection = () => {
 
       <div className="container mx-auto px-4 relative z-10">
         <div className="text-center mb-16">
+          {/* Google verification badge */}
+          <div className="flex items-center justify-center gap-2 mb-6 glass w-fit mx-auto px-6 py-3 rounded-full border border-accent/20">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/c/c1/Google_logo_%282015%29.svg" className="h-4" alt="Google" />
+            <span className="text-sm font-bold text-accent">Verified Reviews</span>
+          </div>
           <div className="flex items-center justify-center gap-1 text-accent mb-4">
             {[1,2,3,4,5].map(i => <Star key={i} size={20} fill="currentColor" />)}
           </div>
           <h2 className="text-4xl md:text-5xl font-bold mb-4">Trusted by Miami's Elite</h2>
-          <p className="text-slate-400 text-lg">Over 330+ Five-Star reviews on Google. Real people, real results.</p>
+          <p className="text-slate-400 text-lg">★ 4.9 rating with <a href="https://www.google.com/maps/place/Unick+Auto+Detailing/" target="_blank" rel="noopener noreferrer" className="text-accent font-semibold hover:underline">330+ verified reviews on Google</a>. Real people, real results.</p>
         </div>
 
         <div className="grid lg:grid-cols-5 gap-8 items-start">
@@ -66,9 +71,9 @@ const ReviewsSection = () => {
               </div>
             ))}
             <div className="pt-4">
-              <a href="#" className="flex items-center justify-center gap-3 w-full py-4 glass border-white/10 rounded-2xl font-bold text-sm hover:bg-white/5 transition-all">
+              <a href="https://www.google.com/maps/place/Unick+Auto+Detailing/" target="_blank" rel="noopener noreferrer" className="flex items-center justify-center gap-3 w-full py-4 glass border-accent/30 hover:bg-accent/10 rounded-2xl font-bold text-sm hover:border-accent/60 transition-all">
                 <img src="https://upload.wikimedia.org/wikipedia/commons/c/c1/Google_logo_%282015%29.svg" className="h-5" alt="Google" />
-                See all 330+ reviews
+                View all 330+ reviews on Google
               </a>
             </div>
           </div>
