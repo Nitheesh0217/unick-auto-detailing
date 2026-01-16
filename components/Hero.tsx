@@ -28,7 +28,7 @@ const Hero = () => {
     <section 
       className="relative min-h-screen flex items-center pt-24 pb-20 overflow-hidden"
       style={{
-        backgroundImage: 'url(/images/hero-ceramic-coating-miami.jpg)',
+        backgroundImage: 'url(/images/hero-ceramic-miami.jpg)',
         backgroundSize: 'cover',
         backgroundPosition: 'center 40%',
         backgroundAttachment: 'fixed'
