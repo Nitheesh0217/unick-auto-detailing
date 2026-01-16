@@ -21,9 +21,7 @@ const FaqPage = () => {
           </p>
         </div>
 
-        <div className="container mx-auto px-4 mb-20">
-          <FAQSection />
-        </div>
+        <FAQSection />
 
         <ReviewsSection />
 

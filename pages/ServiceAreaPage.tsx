@@ -20,7 +20,7 @@ const ServiceAreaPage = () => {
           </p>
         </div>
 
-        <ServiceAreas />
+        <ServiceAreas isPreview={false} />
 
         <div className="py-20 border-t border-white/5">
           <div className="container mx-auto px-4 max-w-4xl">
