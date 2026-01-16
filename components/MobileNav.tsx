@@ -32,6 +32,7 @@ const MobileNav = () => {
           <MessageSquare size={20} />
           <span className="text-[10px] font-bold uppercase tracking-widest">Quote</span>
         </button>
+                <a href={`tel:${BUSINESS_INFO.phone}`} className="flex flex-col items-center gap-1 text-slate-400 transition-colors">
           <Phone size={20} />
           <span className="text-[10px] font-bold uppercase tracking-widest">Call</span>
         </a>
