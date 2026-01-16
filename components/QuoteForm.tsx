@@ -20,10 +20,34 @@ const QuoteForm = () => {
   });
 
   const intents = [
-    { id: 'sell', label: 'Preparing to Sell', sub: 'Maximize Resale Value', icon: Zap },
-    { id: 'new', label: 'New Car Protection', sub: 'Keep It Showroom Perfect', icon: ShieldCheck },
-    { id: 'damage', label: 'Restoration / Repair', sub: 'Fix Scratches & Stains', icon: Sparkles },
-    { id: 'maintenance', label: 'Concierge Maintenance', sub: 'Stay Fresh Monthly', icon: Car },
+    { 
+      id: 'sell', 
+      label: 'Preparing to Sell', 
+      sub: 'Maximize Resale Value',
+      desc: 'Make it look showroom-ready to boost your asking price.',
+      icon: Zap 
+    },
+    { 
+      id: 'new', 
+      label: 'New Car Protection', 
+      sub: 'Keep It Showroom Perfect',
+      desc: 'Protect your investment from day one with premium care.',
+      icon: ShieldCheck 
+    },
+    { 
+      id: 'damage', 
+      label: 'Restoration / Repair', 
+      sub: 'Fix Scratches & Stains',
+      desc: 'Restore your car to like-new condition quickly.',
+      icon: Sparkles 
+    },
+    { 
+      id: 'maintenance', 
+      label: 'Concierge Maintenance', 
+      sub: 'Stay Fresh Monthly',
+      desc: 'Keep your car in pristine condition year-round.',
+      icon: Car 
+    },
   ];
 
   const toggleService = (name: string) => {
@@ -155,22 +179,67 @@ const QuoteForm = () => {
         <div className="flex-1 p-10 md:p-16 flex flex-col justify-center">
           {step === 0 && (
             <div className="animate-in fade-in slide-in-from-right-10 duration-700">
-              <h4 className="text-2xl font-black italic uppercase tracking-tighter mb-8 text-white">What is your primary goal?</h4>
-              <div className="grid sm:grid-cols-2 gap-5">
+              <h4 className="text-2xl font-black italic uppercase tracking-tighter mb-3 text-white">What is your primary goal?</h4>
+              <p className="text-slate-400 text-sm mb-10 font-medium">Pick the option that best matches your needs. We'll customize your quote accordingly.</p>
+              <div className="grid sm:grid-cols-2 gap-4">
                 {intents.map((item) => (
                   <button
                     key={item.id}
                     onClick={() => handleIntent(item.id)}
-                    className="p-8 rounded-[36px] bg-white/5 border border-white/5 hover:border-gold hover:bg-gold/5 transition-all text-left group"
+                    className={`p-6 md:p-8 rounded-[28px] transition-all duration-300 text-left group border-2 ${
+                      intent === item.id 
+                        ? 'border-gold bg-gold/10 shadow-lg shadow-gold/20' 
+                        : 'border-white/10 bg-white/5 hover:border-gold/60 hover:bg-gold/5'
+                    }`}
                   >
-                    <div className="w-12 h-12 bg-white/5 rounded-2xl flex items-center justify-center mb-6 group-hover:bg-gold group-hover:text-slate-950 transition-all duration-500">
+                    {/* Icon container */}
+                    <div className={`w-14 h-14 rounded-2xl flex items-center justify-center mb-4 transition-all duration-300 ${
+                      intent === item.id 
+                        ? 'bg-gold text-slate-950 shadow-lg shadow-gold/30' 
+                        : 'bg-white/10 text-gold group-hover:bg-gold/20'
+                    }`}>
                       <item.icon size={28} />
                     </div>
-                    <p className="font-black italic uppercase tracking-tight text-xl mb-1 text-white">{item.label}</p>
-                    <p className="text-[10px] font-bold text-slate-500 uppercase tracking-widest">{item.sub}</p>
+
+                    {/* Content */}
+                    <div className="flex items-start justify-between mb-2">
+                      <div>
+                        <p className="font-black italic uppercase tracking-tight text-lg md:text-xl text-white">{item.label}</p>
+                        <p className="text-[10px] font-bold text-gold/70 uppercase tracking-widest mt-1">{item.sub}</p>
+                      </div>
+                      {intent === item.id && (
+                        <div className="flex-shrink-0 w-6 h-6 rounded-full bg-gold flex items-center justify-center">
+                          <Check size={16} className="text-slate-950" strokeWidth={3} />
+                        </div>
+                      )}
+                    </div>
+
+                    {/* Plain English benefit */}
+                    <p className="text-xs text-slate-300 leading-relaxed">{item.desc}</p>
+
+                    {/* Progress indicator - show selected state */}
+                    {intent === item.id && (
+                      <div className="mt-4 pt-4 border-t border-gold/20 flex items-center gap-2">
+                        <div className="w-2 h-2 rounded-full bg-gold animate-pulse" />
+                        <p className="text-[10px] font-bold text-gold uppercase tracking-wide">Selected</p>
+                      </div>
+                    )}
                   </button>
                 ))}
               </div>
+
+              {/* CTA Button */}
+              {intent && (
+                <div className="mt-10 animate-in fade-in slide-in-from-bottom-5 duration-500">
+                  <button 
+                    type="button"
+                    onClick={() => setStep(1)}
+                    className="w-full md:w-auto px-12 py-4 bg-gold text-slate-950 rounded-full font-black uppercase tracking-widest hover:scale-105 active:scale-95 transition-all shadow-2xl shadow-gold/30"
+                  >
+                    Continue to Services
+                  </button>
+                </div>
+              )}
             </div>
           )}
 
