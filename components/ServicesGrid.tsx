@@ -5,17 +5,36 @@ import { SERVICES } from '../constants';
 
 const ServicesGrid = () => {
   return (
-    <section className="py-24 relative">
-      <div className="container mx-auto px-4">
-        <div className="flex flex-col md:flex-row md:items-end justify-between mb-16 gap-4">
-          <div className="max-w-xl">
-            <h2 className="text-4xl md:text-5xl font-bold mb-4">World-Class Detailing</h2>
-            <p className="text-slate-400 text-lg">Meticulous care for every surface. We use the finest products and techniques to deliver unmatched results.</p>
+    <>
+      {/* Services Header with Background Image */}
+      <section 
+        className="relative py-20 mb-12"
+        style={{
+          backgroundImage: 'url(/images/services-tools-flatlay.jpg)',
+          backgroundSize: 'cover',
+          backgroundPosition: 'center',
+          backgroundAttachment: 'fixed'
+        }}
+      >
+        {/* Overlay for readability */}
+        <div className="absolute inset-0 bg-gradient-to-r from-slate-950/90 via-slate-950/80 to-slate-950/70 z-0" />
+        
+        <div className="container mx-auto px-4 relative z-10">
+          <div className="flex flex-col md:flex-row md:items-end justify-between gap-4">
+            <div className="max-w-2xl">
+              <h2 className="text-5xl md:text-6xl font-black mb-4 leading-tight">Elite Detailing Services</h2>
+              <p className="text-slate-300 text-xl">Meticulous care for every surface. Premium products & techniques for unmatched results.</p>
+            </div>
+            <a href="#quote" className="text-accent font-bold flex items-center gap-2 group hover:text-accent/80 transition-colors">
+              View Pricing <ArrowUpRight className="group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" />
+            </a>
           </div>
-          <a href="#quote" className="text-accent font-bold flex items-center gap-2 group">
-            View full price list <ArrowUpRight className="group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" />
-          </a>
         </div>
+      </section>
+
+      <section className="py-12 relative">
+      <div className="container mx-auto px-4">
+        <div className="mb-16" />
 
         <div className="grid grid-cols-1 md:grid-cols-6 gap-6">
           {/* Main Bento Card - Ceramic */}
@@ -103,6 +122,7 @@ const ServicesGrid = () => {
         </div>
       </div>
     </section>
+    </>
   );
 };
 
