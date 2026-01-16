@@ -77,8 +77,11 @@ const AIAssistant = () => {
                   Let AI Map Your <br />
                   <span className="text-gold">Transformation.</span>
                 </h2>
-                <p className="text-slate-400 text-lg mb-4 font-medium leading-relaxed">
-                  Describe your car's condition or your detailing goals. V.A.L. analyzes 2,400+ completed details to recommend the perfect service package.
+                <p className="text-slate-400 text-lg mb-6 font-medium leading-relaxed">
+                  Answer a few quick questions and we'll match your car to the exact detailing package it needs.
+                </p>
+                <p className="text-slate-500 text-xs font-bold uppercase tracking-[0.15em] mb-12">
+                  Get a recommended package in under 30 seconds.
                 </p>
                 <p className="text-slate-500 text-sm font-medium leading-relaxed mb-12">
                   <span className="text-gold font-bold">Try:</span> "2024 Tesla with swirl marks" or "Red wine stain on leather seats" or "Preparing my car for sale"
@@ -97,7 +100,8 @@ const AIAssistant = () => {
                     <button 
                       type="submit" 
                       disabled={isLoading}
-                      className="absolute right-4 top-4 bottom-4 w-16 h-16 bg-gold text-slate-950 rounded-2xl flex items-center justify-center hover:scale-105 active:scale-95 transition-all shadow-2xl"
+                      className="absolute right-4 top-4 bottom-4 w-16 h-16 bg-gold text-slate-950 rounded-2xl flex items-center justify-center hover:scale-105 active:scale-95 transition-all shadow-2xl group/btn"
+                      title="Find My Perfect Package"
                     >
                       {isLoading ? <Loader2 className="animate-spin" size={28} /> : <Send size={28} />}
                     </button>
