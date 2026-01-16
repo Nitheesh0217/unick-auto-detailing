@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from 'react';
-import { HashRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
+import { HashRouter as Router, Routes, Route, Navigate, useLocation } from 'react-router-dom';
 import Navbar from './components/Navbar';
 import MobileNav from './components/MobileNav';
+import MobileActionBar from './components/MobileActionBar';
 import Footer from './components/Footer';
 import HomePage from './pages/HomePage';
 import ServicesPage from './pages/ServicesPage';
@@ -35,7 +36,7 @@ const App: React.FC = () => {
 
   return (
     <Router>
-      <div className="min-h-screen pb-20 lg:pb-0 bg-slate-950">
+      <div className="min-h-screen pb-28 md:pb-20 lg:pb-0 bg-slate-950">
         <Navbar />
         <Routes>
           <Route path="/" element={<HomePage />} />
@@ -48,6 +49,7 @@ const App: React.FC = () => {
         </Routes>
         <Footer />
         <MobileNav />
+        <MobileActionBar />
 
         {/* Floating Action Button (FAB) for Quote */}
         <button 
