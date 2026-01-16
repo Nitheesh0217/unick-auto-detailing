@@ -159,9 +159,9 @@ const QuoteForm = () => {
         {/* Sidebar Info */}
         <div className="lg:w-1/3 bg-slate-900/40 p-12 border-r border-white/5 flex flex-col">
           <div className="mb-12">
-            <span className="text-[10px] font-black uppercase tracking-[0.4em] text-gold mb-2 block">Operation Phase {step}</span>
+            <span className="text-[10px] font-black uppercase tracking-[0.4em] text-gold mb-2 block">Step {step + 1}</span>
             <h3 className="text-4xl font-black italic uppercase tracking-tighter leading-[0.9] mb-3 text-white">
-              {step === 0 ? "Identify Objective" : step === 1 ? "Strategic Selection" : step === 2 ? "Vehicle Profiling" : step === 3 ? "Direct Comms" : step === 4 ? "Logistics" : "Final Lockdown"}
+              {step === 0 ? "Your Goal" : step === 1 ? "Choose Services" : step === 2 ? "Vehicle Info" : step === 3 ? "Contact Info" : step === 4 ? "Schedule" : "Confirmation"}
             </h3>
             <p className="text-[10px] text-gold/60 font-bold uppercase tracking-[0.1em] mb-3">
               {step === 0 ? "Tell us your detailing goal" : 
@@ -373,8 +373,8 @@ const QuoteForm = () => {
                 <div className="w-20 h-20 bg-white/5 rounded-3xl flex items-center justify-center mx-auto mb-6 group-hover/upload:scale-110 group-hover/upload:bg-gold/10 transition-all">
                   <Upload size={32} className="text-slate-500 group-hover/upload:text-gold" />
                 </div>
-                <p className="font-black italic uppercase tracking-tighter text-2xl mb-2 text-white">Visual Intelligence</p>
-                <p className="text-slate-500 text-xs font-bold uppercase tracking-widest">Upload car photos for a more surgical quote (Optional)</p>
+                <p className="font-black italic uppercase tracking-tighter text-2xl mb-2 text-white">Show Us Your Car</p>
+                <p className="text-slate-500 text-xs font-bold uppercase tracking-widest">Upload photos for more accurate pricing (Optional)</p>
               </div>
             </div>
           )}
@@ -428,7 +428,7 @@ const QuoteForm = () => {
                   {errors.email && <p className="text-xs text-red-400 font-bold">{errors.email}</p>}
                 </div>
                 <div className="md:col-span-2 space-y-3">
-                  <label className="text-[10px] font-black uppercase tracking-[0.3em] text-slate-600">Deployment District</label>
+                  <label className="text-[10px] font-black uppercase tracking-[0.3em] text-slate-600">Service Location</label>
                   <select 
                     className={`w-full bg-slate-950 border rounded-[20px] px-8 py-6 text-sm font-bold outline-none focus:border-gold transition-all text-white ${
                       errors.location ? 'border-red-500/50' : 'border-white/10'

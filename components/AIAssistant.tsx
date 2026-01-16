@@ -171,8 +171,8 @@ const AIAssistant = () => {
                       </div>
                     </div>
                     <div className="text-center">
-                      <p className="text-3xl font-black italic uppercase tracking-tighter text-slate-800 mt-6 group-hover:text-slate-700 transition-colors">Neural Grid Active</p>
-                      <p className="text-[10px] text-slate-600 font-bold uppercase tracking-widest mt-4">Waiting for your description...</p>
+                      <p className="text-3xl font-black italic uppercase tracking-tighter text-slate-800 mt-6 group-hover:text-slate-700 transition-colors">AI Powered</p>
+                      <p className="text-[10px] text-slate-600 font-bold uppercase tracking-widest mt-4">Analyzing your request...</p>
                     </div>
                   </div>
                 )}

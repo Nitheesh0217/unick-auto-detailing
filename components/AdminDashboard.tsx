@@ -74,7 +74,7 @@ const AdminDashboard = ({ onLogout }: { onLogout: () => void }) => {
                </div>
                <div>
                   <h1 className="text-5xl font-black italic uppercase tracking-tighter text-white">COMMAND<span className="text-gold">CENTRAL</span></h1>
-                  <p className="text-slate-500 font-bold uppercase tracking-[0.2em] text-xs">Unick Mobile Detailing Logistics v4.2</p>
+                  <p className="text-slate-500 font-bold uppercase tracking-[0.2em] text-xs">Lead Management Dashboard v1.0</p>
                </div>
             </div>
           </div>
