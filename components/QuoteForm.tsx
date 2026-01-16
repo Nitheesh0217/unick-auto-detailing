@@ -363,6 +363,18 @@ const QuoteForm = () => {
                        <p className="text-[10px] font-bold text-success uppercase mt-1">✓ Bundled pricing applied</p>
                     </div>
                   </div>
+                  <div className="md:col-span-full mt-6 p-4 bg-emerald-500/5 rounded-xl border border-emerald-500/10">
+                    <ul className="space-y-1.5">
+                      <li className="flex items-center gap-2 text-xs text-slate-300">
+                        <Check size={14} className="text-emerald-500" />
+                        No hidden fees
+                      </li>
+                      <li className="flex items-center gap-2 text-xs text-slate-300">
+                        <Check size={14} className="text-emerald-500" />
+                        Price confirmed via text before we start
+                      </li>
+                    </ul>
+                  </div>
                 </div>
               </div>
               

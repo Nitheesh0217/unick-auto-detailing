@@ -42,6 +42,18 @@ const ServiceDeepDives = () => {
                    <p className="text-[10px] font-black uppercase text-accent mb-2 tracking-widest">Ideal for you if...</p>
                    <p className="text-sm italic text-slate-300">"{service.idealFor}"</p>
                 </div>
+                <div className="mb-8 p-4 bg-emerald-500/5 rounded-xl border border-emerald-500/10">
+                  <ul className="space-y-1.5">
+                    <li className="flex items-center gap-2 text-xs text-slate-300">
+                      <CheckCircle2 size={14} className="text-emerald-500 shrink-0" />
+                      No hidden fees
+                    </li>
+                    <li className="flex items-center gap-2 text-xs text-slate-300">
+                      <CheckCircle2 size={14} className="text-emerald-500 shrink-0" />
+                      Price confirmed via text before we start
+                    </li>
+                  </ul>
+                </div>
                 <div className="flex items-center justify-between">
                    <p className="text-2xl font-black text-accent">{service.price}</p>
                    <a href="#quote" className="flex items-center gap-2 font-black text-sm uppercase group-hover:text-accent transition-colors">

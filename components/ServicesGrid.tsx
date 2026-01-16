@@ -1,6 +1,6 @@
 
 import React from 'react';
-import { ArrowUpRight } from 'lucide-react';
+import { ArrowUpRight, CheckCircle2 } from 'lucide-react';
 import { SERVICES } from '../constants';
 
 const ServicesGrid = () => {
@@ -33,6 +33,16 @@ const ServicesGrid = () => {
                   </div>
                   <p className="text-2xl font-black text-accent">$400+</p>
                 </div>
+                <ul className="space-y-1.5 mb-6 text-xs text-slate-400">
+                  <li className="flex items-center gap-2">
+                    <CheckCircle2 size={14} className="text-emerald-500 shrink-0" />
+                    No hidden fees
+                  </li>
+                  <li className="flex items-center gap-2">
+                    <CheckCircle2 size={14} className="text-emerald-500 shrink-0" />
+                    Price confirmed via text before we start
+                  </li>
+                </ul>
                 <div className="flex flex-wrap gap-2 mb-6">
                   {["Self-Cleaning", "High Gloss", "Self-Healing"].map(t => (
                     <span key={t} className="px-3 py-1 bg-white/5 rounded-full text-xs font-medium">{t}</span>
@@ -56,6 +66,16 @@ const ServicesGrid = () => {
                 ))}
               </ul>
               <p className="text-xl font-bold text-accent mb-4">From $150</p>
+              <ul className="space-y-1.5 text-xs text-slate-400">
+                <li className="flex items-center gap-2">
+                  <CheckCircle2 size={14} className="text-emerald-500 shrink-0" />
+                  No hidden fees
+                </li>
+                <li className="flex items-center gap-2">
+                  <CheckCircle2 size={14} className="text-emerald-500 shrink-0" />
+                  Price confirmed before we start
+                </li>
+              </ul>
             </div>
             <div className="h-48 overflow-hidden">
                <img src="https://images.unsplash.com/photo-1597762470488-3877b1f538c6?auto=format&fit=crop&q=80&w=600" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" alt="Interior Detail" />
@@ -67,7 +87,17 @@ const ServicesGrid = () => {
              <div key={service.id} className="md:col-span-2 glass rounded-[32px] p-8 group hover:border-accent/40 transition-all border-white/5">
                 <h4 className="text-lg font-bold mb-2">{service.name}</h4>
                 <p className="text-sm text-slate-400 mb-4 line-clamp-2">{service.description}</p>
-                <p className="text-accent font-black">{service.price}</p>
+                <p className="text-accent font-black mb-3">{service.price}</p>
+                <ul className="space-y-1 text-xs text-slate-400">
+                  <li className="flex items-center gap-2">
+                    <CheckCircle2 size={12} className="text-emerald-500 shrink-0" />
+                    No hidden fees
+                  </li>
+                  <li className="flex items-center gap-2">
+                    <CheckCircle2 size={12} className="text-emerald-500 shrink-0" />
+                    Confirmed before start
+                  </li>
+                </ul>
              </div>
           ))}
         </div>
