@@ -10,8 +10,7 @@ const ServicesGrid = () => {
       <section 
         className="relative py-20 mb-12"
         style={{
-          backgroundImage: 'url(/images/services-tools-flatlay.jpg)',
-          backgroundSize: 'cover',
+        backgroundImage: 'url(/images/services-tools-flatlay.jpg.png)',          backgroundSize: 'cover',
           backgroundPosition: 'center',
           backgroundAttachment: 'fixed'
         }}
