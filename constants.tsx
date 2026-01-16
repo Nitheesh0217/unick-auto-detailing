@@ -105,6 +105,14 @@ export const FAQS = [
   {
     q: "Is Ceramic Coating worth the investment?",
     a: "Absolutely. It's a permanent (or multi-year) chemical bond that acts as a second skin. It protects against bird droppings, acid rain, and UV damage while making your car incredibly easy to wash."
+  },
+  {
+    q: "How long does a full detail take?",
+    a: "Most full interior + exterior details take between 2–4 hours depending on the size and condition of your vehicle. Ceramic coatings and paint correction can take longer (3–6 hours) due to curing and polishing steps. We'll provide an exact time estimate when you submit your vehicle details."
+  },
+  {
+    q: "What's your average price range?",
+    a: "Standard details typically start around $120 (Signature Wash & Wax) and go up to $450+ (Elite Ceramic Shield and premium packages) based on vehicle size, condition, and add-ons like pet hair removal, odor elimination, or ceramic coating. You'll always see a transparent estimate before you confirm, with no hidden fees."
   }
 ];
 
