@@ -8,7 +8,13 @@ const Hero = () => {
   const navigate = useNavigate();
 
   const scrollToGallery = () => {
-    navigate('/gallery');
+    // Scroll to gallery on current page if available, otherwise navigate
+    const galleryElement = document.getElementById('gallery');
+    if (galleryElement) {
+      galleryElement.scrollIntoView({ behavior: 'smooth' });
+    } else {
+      navigate('/gallery');
+    }
   };
 
   const scrollToQuote = () => {
