@@ -64,16 +64,24 @@ const AIAssistant = () => {
           <div className="bg-slate-900/50 rounded-[60px] overflow-hidden">
             <div className="p-12 md:p-20 text-center lg:text-left grid lg:grid-cols-2 gap-20 items-center">
               <div>
-                <div className="inline-flex items-center gap-3 px-5 py-2 bg-cyan-500/10 rounded-full text-[#00E5FF] text-[10px] font-black uppercase tracking-[0.3em] mb-8">
-                  <BrainCircuit size={14} />
-                  V.A.L. Concierge <span className="opacity-40 ml-1">v3.1 Neural</span>
+                <div className="inline-flex flex-col gap-2 mb-8">
+                  <div className="inline-flex items-center gap-3 px-5 py-2 bg-cyan-500/10 rounded-full text-[#00E5FF] text-[10px] font-black uppercase tracking-[0.3em] w-fit">
+                    <BrainCircuit size={14} />
+                    V.A.L. Concierge <span className="opacity-40 ml-1">v3.1 Neural</span>
+                  </div>
+                  <p className="text-[10px] text-cyan-300 font-bold uppercase tracking-[0.1em]">
+                    AI Service Recommendations – Get matched in under 30 seconds
+                  </p>
                 </div>
                 <h2 className="text-4xl md:text-6xl font-black mb-8 italic tracking-tighter uppercase leading-[1] text-white">
                   Let AI Map Your <br />
                   <span className="text-gold">Transformation.</span>
                 </h2>
-                <p className="text-slate-400 text-lg mb-12 font-medium leading-relaxed">
-                  Describe your car's condition or your detailing goals. V.A.L. (Vehicle Assessment Logic) will engineer a custom program tailored to Miami's environmental demands.
+                <p className="text-slate-400 text-lg mb-4 font-medium leading-relaxed">
+                  Describe your car's condition or your detailing goals. V.A.L. analyzes 2,400+ completed details to recommend the perfect service package.
+                </p>
+                <p className="text-slate-500 text-sm font-medium leading-relaxed mb-12">
+                  <span className="text-gold font-bold">Try:</span> "2024 Tesla with swirl marks" or "Red wine stain on leather seats" or "Preparing my car for sale"
                 </p>
                 
                 <form onSubmit={handleAsk} className="relative group">
@@ -158,7 +166,10 @@ const AIAssistant = () => {
                         <Sparkles size={60} className="text-gold animate-pulse opacity-40 group-hover:opacity-100" />
                       </div>
                     </div>
-                    <p className="text-3xl font-black italic uppercase tracking-tighter text-slate-800 mt-6 group-hover:text-slate-700 transition-colors">Neural Grid Active</p>
+                    <div className="text-center">
+                      <p className="text-3xl font-black italic uppercase tracking-tighter text-slate-800 mt-6 group-hover:text-slate-700 transition-colors">Neural Grid Active</p>
+                      <p className="text-[10px] text-slate-600 font-bold uppercase tracking-widest mt-4">Waiting for your description...</p>
+                    </div>
                   </div>
                 )}
               </div>

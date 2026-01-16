@@ -107,17 +107,25 @@ const QuoteForm = () => {
         {/* Sidebar Info */}
         <div className="lg:w-1/3 bg-slate-900/40 p-12 border-r border-white/5 flex flex-col">
           <div className="mb-12">
-            <span className="text-[10px] font-black uppercase tracking-[0.4em] text-gold mb-4 block">Operation Phase {step}</span>
-            <h3 className="text-4xl font-black italic uppercase tracking-tighter leading-[0.9] mb-6 text-white">
+            <span className="text-[10px] font-black uppercase tracking-[0.4em] text-gold mb-2 block">Operation Phase {step}</span>
+            <h3 className="text-4xl font-black italic uppercase tracking-tighter leading-[0.9] mb-3 text-white">
               {step === 0 ? "Identify Objective" : step === 1 ? "Strategic Selection" : step === 2 ? "Vehicle Profiling" : step === 3 ? "Direct Comms" : step === 4 ? "Logistics" : "Final Lockdown"}
             </h3>
+            <p className="text-[10px] text-gold/60 font-bold uppercase tracking-[0.1em] mb-3">
+              {step === 0 ? "Tell us your detailing goal" : 
+               step === 1 ? "Pick services & get pricing" : 
+               step === 2 ? "Vehicle details" :
+               step === 3 ? "Contact info" : 
+               step === 4 ? "Pick your time" : 
+               "Confirm booking"}
+            </p>
             <p className="text-slate-500 text-sm font-medium leading-relaxed">
-              {step === 0 ? "Tell us your mission goal so we can tailor our treatment logic." : 
-               step === 1 ? "Choose your restoration program. Multiple selections trigger bundled valuation." : 
-               step === 2 ? "We require vehicle specs to engineer the correct chemical payloads." :
-               step === 3 ? "Owner contact details for priority dispatching." : 
-               step === 4 ? "Select your preferred arrival window in the Miami grid." : 
-               "Verify all parameters before deploying the mobile unit."}
+              {step === 0 ? "Selling your car? New car protection? Fixing damage? Or monthly maintenance? This helps us customize your service." : 
+               step === 1 ? "Mix and match services. Book 2+ and save 15% with bundle discounts." : 
+               step === 2 ? "We match products and techniques to your car's year, make, and condition." :
+               step === 3 ? "Your name, phone, email, and WhatsApp preference so we can confirm fast." : 
+               step === 4 ? "Choose your preferred time in the Miami area." : 
+               "All set! We'll dispatch within 24 hours."}
             </p>
           </div>
 

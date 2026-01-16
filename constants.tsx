@@ -31,7 +31,7 @@ export const SERVICES: Service[] = [
   {
     id: 'paint-correction',
     name: "Precision Paint Correction",
-    description: "Surgical removal of defects to reveal true paint clarity.",
+    description: "Expert removal of swirl marks, scratches, and oxidation to restore showroom-quality paint.",
     price: "From $350",
     basePrice: 350,
     benefits: [
@@ -44,14 +44,14 @@ export const SERVICES: Service[] = [
   {
     id: 'premium-interior',
     name: "Concierge Interior",
-    description: "Museum-level sanitization and surface restoration.",
+    description: "Deep interior cleaning with stain removal, odor elimination, and leather care.",
     price: "From $180",
     basePrice: 180,
     popular: true,
     benefits: [
-      "Medical-grade steam sanitization",
-      "Stain extraction & leather feeding",
-      "Total cabin DNA-level clean"
+      "Medical-grade steam sanitization (kills 99.9% of germs)",
+      "Stain & spill removal + leather conditioning",
+      "Complete interior detail (eliminates dirt, odors, and built-up grime)"
     ],
     idealFor: "Family cars, luxury commuters, or anyone who values a pristine, healthy cabin."
   },
@@ -71,13 +71,13 @@ export const SERVICES: Service[] = [
   {
     id: 'full-detail',
     name: "Total Transformation",
-    description: "The complete Unick experience: Interior + Exterior.",
+    description: "Complete interior and exterior detailing plus engine bay cleaning and UV protection.",
     price: "From $280",
     basePrice: 280,
     benefits: [
-      "Complete interior/exterior overhaul",
-      "Engine bay surgical dusting",
-      "Comprehensive UV shielding"
+      "Exterior wash, polish, correction & protective coating",
+      "Interior deep clean, stain removal & odor elimination",
+      "Engine bay detailed cleaning + UV protection"
     ],
     idealFor: "Maximizing resale value or seasonal deep-cleaning."
   }
