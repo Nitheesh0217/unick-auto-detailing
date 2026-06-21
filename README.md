@@ -1,75 +1,64 @@
-# 🚗 Unick Auto Detailing – Elite Miami Mobile Concierge
+# 🚗 Unick Auto Detailing
 
-**Premium Auto Detailing Services | Miami, Florida**
+> **Elite Mobile Auto Detailing — Miami, Florida**
 
-A modern, high-performance website for Unick Auto Detailing – showcasing elite mobile car detailing services with an advanced quote system, admin dashboard, and AI-powered service recommendations.
+[![Live Demo](https://img.shields.io/badge/Live%20Demo-unick--auto--detailing.vercel.app-black?style=for-the-badge&logo=vercel)](https://unick-auto-detailing.vercel.app)
+[![React](https://img.shields.io/badge/React-19-61DAFB?style=flat&logo=react&logoColor=black)](https://react.dev/)
+[![TypeScript](https://img.shields.io/badge/TypeScript-5-3178C6?style=flat&logo=typescript&logoColor=white)](https://www.typescriptlang.org/)
+[![Vite](https://img.shields.io/badge/Vite-6-646CFF?style=flat&logo=vite&logoColor=white)](https://vitejs.dev/)
+[![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS-3-06B6D4?style=flat&logo=tailwindcss&logoColor=white)](https://tailwindcss.com/)
+[![License](https://img.shields.io/badge/License-Private-red?style=flat)](./LICENSE)
+
+A production-deployed, full-featured business web application for **Unick Auto Detailing** — a premium mobile car detailing concierge serving Miami, FL. Built with React 19, TypeScript, and Vite, this app handles the entire customer lifecycle from service discovery to quote submission to admin lead management.
+
+**🔗 Live:** [unick-auto-detailing.vercel.app](https://unick-auto-detailing.vercel.app)
 
 ---
 
-## 🌟 Features
+## 📋 Table of Contents
 
-- **Hero Section** - Stunning landing experience with immediate call-to-action
-- **Service Grid** - Showcase of 5+ elite detailing services with pricing
-- **Before/After Gallery** - Visual proof of transformation quality
-- **AI Assistant** - Smart service recommendation engine based on customer needs
-- **Advanced Quote System** - 6-step multi-intent form with real-time price estimation
-- **Service Deep Dives** - Detailed explanations of each service offering
-- **Service Areas** - Coverage map and regional information for Miami
-- **Reviews Section** - Customer testimonials and ratings
-- **FAQ Section** - Comprehensive Q&A for customer support
-- **Admin Dashboard** - Manage incoming quote requests and leads
-- **Mobile Responsive** - Fully optimized for all device sizes
-- **Glassmorphism UI** - Modern design with blur effects and gradient overlays
-- **WhatsApp Integration** - Direct messaging integration for priority communication
+- [Features](#-features)
+- [Tech Stack](#-tech-stack)
+- [Project Structure](#-project-structure)
+- [Getting Started](#-getting-started)
+- [Key Features Deep Dive](#-key-features-deep-dive)
+- [Design System](#-design-system)
+- [Deployment](#-deployment)
+- [Roadmap](#-roadmap)
+
+---
+
+## ✨ Features
+
+- **Hero Section** — Cinematic landing experience with immediate call-to-action
+- **Services Grid** — 5+ elite detailing packages with live pricing
+- **Before/After Gallery** — Visual proof of transformation quality
+- **AI Assistant** — Smart service recommendation engine based on customer needs
+- **6-Step Quote Form** — Multi-intent wizard with real-time price estimation
+- **Service Deep Dives** — Detailed breakdowns of each service offering
+- **How It Works** — Step-by-step process walkthrough
+- **Service Areas** — Coverage map for Miami and surrounding regions
+- **Reviews Section** — Customer testimonials and star ratings
+- **FAQ Section** — Comprehensive Q&A for customer support
+- **Admin Dashboard** — Password-protected lead management panel
+- **Mobile Action Bar** — Persistent mobile CTA (call, WhatsApp, quote)
+- **WhatsApp Integration** — Direct priority messaging for customers
+- **Glassmorphism UI** — Modern design with blur effects and gradient overlays
+- **Fully Responsive** — Optimized for mobile, tablet, and desktop
 
 ---
 
 ## 🛠️ Tech Stack
 
-| Technology | Purpose |
-|-----------|---------|
-| **React 19.2.3** | UI Framework |
-| **TypeScript** | Type-safe development |
-| **Vite 6.4** | Build tool & dev server |
-| **React Router 7.12** | Page routing |
-| **Tailwind CSS** | Styling & utilities |
-| **Lucide React** | Icon library |
-| **Custom Store** | Lead management system |
-
----
-
-## 🚀 Quick Start
-
-### Prerequisites
-- Node.js 20.17.0 or higher
-- npm 11.0.0 or higher
-
-### Installation
-
-1. Clone the repository:
-   ```bash
-   git clone https://github.com/Nitheesh0217/unick-auto-detailing.git
-   cd unick-auto-detailing
-   ```
-
-2. Install dependencies:
-   ```bash
-   npm install
-   ```
-
-3. (Optional) Configure Gemini API for future AI integration:
-   - Edit `.env.local` and add your `GEMINI_API_KEY`
-   - Currently, the AI Assistant uses simulated recommendations
-
-4. Start the development server:
-   ```bash
-   npm run dev
-   ```
-
-5. Open your browser and navigate to:
-   ```
-   http://localhost:3000
-   ```
+| Technology | Version | Purpose |
+|---|---|---|
+| **React** | 19.2.3 | UI Framework |
+| **TypeScript** | 5+ | Type-safe development |
+| **Vite** | 6.4 | Build tool & dev server |
+| **React Router** | 7.12 | Client-side routing (hash-based) |
+| **Tailwind CSS** | 3 | Utility-first styling |
+| **Lucide React** | latest | Icon library |
+| **Custom Store** | — | In-memory lead management |
 
 ---
 
@@ -77,184 +66,193 @@ A modern, high-performance website for Unick Auto Detailing – showcasing elite
 
 ```
 unick-auto-detailing/
-├── components/              # React components
-│   ├── AdminDashboard.tsx   # Lead management interface
-│   ├── AIAssistant.tsx      # Smart service recommendations
-│   ├── BeforeAfterWall.tsx  # Gallery showcase
-│   ├── Hero.tsx             # Landing section
-│   ├── QuoteForm.tsx        # 6-step quote request form
-│   ├── ReviewsSection.tsx   # Customer testimonials
-│   ├── ServiceDeepDives.tsx # Detailed service info
-│   ├── ServicesGrid.tsx     # Service cards display
-│   ├── ServiceAreas.tsx     # Regional coverage
-│   ├── FAQSection.tsx       # Q&A section
-│   ├── Navbar.tsx           # Navigation
-│   └── Footer.tsx           # Footer section
+├── components/
+│   ├── AdminDashboard.tsx    # Password-protected lead management panel
+│   ├── AIAssistant.tsx       # Service recommendation engine
+│   ├── BeforeAfterWall.tsx   # Before/after transformation gallery
+│   ├── FAQSection.tsx        # Customer FAQ accordion
+│   ├── FinalCTA.tsx          # Bottom conversion section
+│   ├── Footer.tsx            # Site footer with contact info
+│   ├── Hero.tsx              # Landing hero with CTA
+│   ├── HowItWorks.tsx        # Process walkthrough
+│   ├── Login.tsx             # Admin authentication screen
+│   ├── MobileActionBar.tsx   # Sticky mobile call/WhatsApp/quote bar
+│   ├── MobileNav.tsx         # Mobile hamburger navigation
+│   ├── Navbar.tsx            # Desktop navigation
+│   ├── QuoteForm.tsx         # 6-step multi-intent quote wizard
+│   ├── ReviewsSection.tsx    # Customer testimonials
+│   ├── ServiceAreas.tsx      # Miami coverage map
+│   ├── ServiceDeepDives.tsx  # Per-service detail pages
+│   └── ServicesGrid.tsx      # Service cards with pricing
 ├── lib/
-│   └── store.ts             # Lead store management
-├── App.tsx                  # Main app component
-├── index.tsx                # React entry point
-├── types.ts                 # TypeScript definitions
-├── constants.tsx            # Business constants & services
-├── vite.config.ts           # Vite configuration
-├── tsconfig.json            # TypeScript config
-└── index.html               # HTML template
+│   └── store.ts              # In-memory lead store
+├── pages/                    # Page-level route components
+├── public/                   # Static assets
+├── App.tsx                   # Root app with routing
+├── constants.tsx             # Business data, services, pricing
+├── index.tsx                 # React entry point
+├── types.ts                  # Shared TypeScript types
+├── vite.config.ts            # Vite configuration
+└── tsconfig.json             # TypeScript configuration
 ```
 
 ---
 
-## 🎯 Key Features Explained
+## 🚀 Getting Started
 
-### Quote Form (6-Step Process)
-1. **Intent Selection** - Identify customer goal (selling, protection, repair, maintenance)
-2. **Service Selection** - Choose relevant detailing packages
-3. **Vehicle Profiling** - Specify vehicle year, make, model
-4. **Contact Information** - Capture name, email, phone, WhatsApp preference
-5. **Logistics** - Select preferred appointment date/time
-6. **Confirmation** - Summary and WhatsApp priority chat option
+### Prerequisites
 
-### Admin Dashboard
-- **Password Protected** (password: `unick2026`)
-- View all incoming quote requests
-- Filter by status: New, Contacted, Quoted, Scheduled, Completed
-- Real-time lead updates
-- Contact information and service selections visible
+- Node.js 20.17.0+
+- npm 11.0.0+
 
-### AI Assistant
-- Analyzes customer queries for service matching
-- Returns relevant service recommendations
-- Anchoring psychology for bundle pricing
-- Future integration with Gemini API for advanced NLP
+### Installation
+
+```bash
+# 1. Clone the repository
+git clone https://github.com/Nitheesh0217/unick-auto-detailing.git
+cd unick-auto-detailing
+
+# 2. Install dependencies
+npm install
+
+# 3. Set up environment variables
+cp .env.example .env.local
+# Edit .env.local and add your VITE_GEMINI_API_KEY if using AI features
+
+# 4. Start the development server
+npm run dev
+# → http://localhost:3000
+```
+
+### Available Scripts
+
+| Command | Description |
+|---|---|
+| `npm run dev` | Start dev server on port 3000 |
+| `npm run build` | Build for production (outputs to `dist/`) |
+| `npm run preview` | Preview production build locally |
+
+---
+
+## 🎯 Key Features Deep Dive
+
+### 6-Step Quote Wizard (`QuoteForm.tsx`)
+
+A multi-step, conversion-optimized booking flow:
+
+1. **Intent Selection** — Identify goal: selling, protection, repair, or maintenance
+2. **Service Selection** — Choose from available detailing packages
+3. **Vehicle Profiling** — Year, make, model input
+4. **Contact Info** — Name, email, phone, WhatsApp preference
+5. **Logistics** — Preferred appointment date and time slot
+6. **Confirmation** — Summary with WhatsApp priority chat option
+
+> Real-time price estimation updates as selections change throughout the flow.
+
+### Admin Dashboard (`AdminDashboard.tsx`)
+
+Password-protected lead management panel accessible at [`/#/admin`](https://unick-auto-detailing.vercel.app/#/admin):
+
+- View all incoming quote requests with full contact and service details
+- Filter leads by status: **New → Contacted → Quoted → Scheduled → Completed**
+- Real-time in-memory lead updates (persists per session)
+
+> **Note:** Admin uses localStorage-based session auth. For production, replace with a proper backend authentication system.
+
+### AI Assistant (`AIAssistant.tsx`)
+
+- Analyzes customer natural-language queries for service matching
+- Returns ranked service recommendations with pricing anchors
+- Bundle psychology built into recommendation scoring
+- Ready for Gemini API upgrade (see `.env.example`)
 
 ---
 
 ## 🎨 Design System
 
-**Color Palette:**
-- Gold: `#FFB84D` - Primary brand color
-- Deep Space: `#0A1628` - Dark background
-- Miami Cyan: `#00E5FF` - Accent color
-- Platinum: `#F8F9FA` - Light text
-- Success: `#10B981` - Confirmation states
+**Color Palette**
 
-**Typography:**
-- Headings: `Outfit` (600-900 weight)
-- Body: `Inter` (400-700 weight)
+| Name | Hex | Usage |
+|---|---|---|
+| Gold | `#FFB84D` | Primary brand, CTAs |
+| Deep Space | `#0A1628` | Dark backgrounds |
+| Miami Cyan | `#00E5FF` | Accents, highlights |
+| Platinum | `#F8F9FA` | Light text |
+| Success | `#10B981` | Confirmation states |
 
-**UI Components:**
-- Glass-card effects (backdrop blur)
-- Smooth animations and transitions
-- Mobile-first responsive design
-- Accessibility considerations
+**Typography**
+- Headings: `Outfit` (600–900 weight)
+- Body: `Inter` (400–700 weight)
 
----
+**UI Patterns**
+- Glassmorphism cards (`backdrop-blur` + semi-transparent backgrounds)
+- Smooth CSS transitions and entrance animations
+- Mobile-first responsive layout
+- Accessible color contrast ratios
 
-## 📱 Responsive Breakpoints
-
-- **Mobile**: < 768px
-- **Tablet**: 768px - 1024px
-- **Desktop**: > 1024px
-
----
-
-## 🔐 Authentication
-
-Admin panel uses simple localStorage-based authentication:
-- Default password: `unick2026`
-- Stored in browser localStorage
-- Logout clears session
+**Breakpoints**
+- Mobile: `< 768px`
+- Tablet: `768px – 1024px`
+- Desktop: `> 1024px`
 
 ---
 
-## 📊 Data Structure
+## ☁️ Deployment
 
-### QuoteRequest
-```typescript
-{
-  id: string;
-  timestamp: Date;
-  services: string[];
-  vehicle: { year, make, model };
-  contact: { name, email, phone, whatsapp };
-  location: string;
-  preferredDate: string;
-  preferredTime: 'morning' | 'afternoon' | 'evening';
-  estimatedPrice: { min, max };
-  status: 'new' | 'contacted' | 'quoted' | 'scheduled' | 'completed';
-}
-```
+### Vercel (Live)
 
----
+This app is deployed on Vercel with automatic deployments on every push to `main`.
 
-## 🚢 Deployment
-
-### Build for Production
+**Manual deploy:**
 ```bash
 npm run build
+npx vercel --prod
 ```
 
-This generates an optimized build in the `dist/` folder ready for deployment.
+> The app uses **hash-based routing** (`/#/admin`, `/#/quote`) so no special Vercel rewrite rules are needed.
 
-### Deploy to Vercel (Recommended)
-```bash
-npm install -g vercel
-vercel
-```
+### Netlify
 
-### Deploy to Netlify
-Connect your GitHub repository to Netlify for automatic deployments.
+Connect your GitHub repository to Netlify. Set build command to `npm run build` and publish directory to `dist`.
 
 ---
 
-## 📞 Contact Information
+## 🗺️ Roadmap
 
-**Unick Auto Detailing**
-- 📱 Phone: (786) 622-7620
-- 📧 Email: Info@UnickAutoDetailing.com
-- 📍 Service Area: Miami, FL (Mobile Concierge)
+- [ ] Gemini API integration for advanced AI service recommendations
+- [ ] Photo upload in quote form
+- [ ] Email/SMS notifications for new quote submissions
+- [ ] Stripe payment integration for deposits
+- [ ] Google Calendar sync for appointments
+- [ ] Customer portal for tracking service status
+- [ ] Backend persistence (replace in-memory store with Supabase)
+- [ ] Google Reviews API integration
+
+---
+
+## 📞 Business Contact
+
+**Unick Auto Detailing — Miami, FL**
+
+- 📱 Phone: [(786) 622-7620](tel:7866227620)
+- 📧 Email: [Info@UnickAutoDetailing.com](mailto:Info@UnickAutoDetailing.com)
+- 📍 Service Area: Miami, FL (Mobile Concierge — we come to you)
 - 📱 WhatsApp: Available
-- 🎬 Social: @unickdetailing (Instagram, TikTok, YouTube)
-
----
-
-## 📝 Available Scripts
-
-| Command | Description |
-|---------|-------------|
-| `npm run dev` | Start development server on port 3000 |
-| `npm run build` | Build for production |
-| `npm run preview` | Preview production build locally |
-
----
-
-## 🤝 Contributing
-
-This is a commercial website for Unick Auto Detailing. For updates or modifications, contact the development team.
+- 🎬 Social: [@unickdetailing](https://instagram.com/unickdetailing) on Instagram, TikTok & YouTube
 
 ---
 
 ## 📄 License
 
-Private project - All rights reserved © 2026 Unick Auto Detailing
-
----
-
-## 🔮 Future Enhancements
-
-- [ ] Gemini API integration for advanced AI recommendations
-- [ ] Photo upload in quote form
-- [ ] Email/SMS notifications for quote updates
-- [ ] Payment integration
-- [ ] Appointment calendar sync
-- [ ] Customer portal for tracking service status
-- [ ] Review system backend integration
-
----
+Private project — All rights reserved © 2026 Unick Auto Detailing.
+Developed by [Nitheesh Donepudi](https://github.com/Nitheesh0217).
 
 <div align="center">
 
-**Built with ❤️ for Elite Auto Care**
+---
 
-[Visit Website](http://localhost:3000) | [GitHub](https://github.com/Nitheesh0217/unick-auto-detailing)
+**Built for elite auto care. Deployed and live.**
+
+[🌐 Visit Live Site](https://unick-auto-detailing.vercel.app) &nbsp;·&nbsp; [⚙️ Admin Panel](https://unick-auto-detailing.vercel.app/#/admin) &nbsp;·&nbsp; [👨‍💻 Developer](https://github.com/Nitheesh0217)
 
 </div>
